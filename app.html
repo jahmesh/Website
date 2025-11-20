@@ -1,10 +1,78 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>My First GitHub Page</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portal — แดชบอร์ด</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent1:#8b5cf6; --accent2:#06b6d4; --glass: rgba(255,255,255,0.04);
+--radius:16px; --gap:18px; --text:#e6eef8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,#071022 0%, #081726 60%); color:var(--text); -webkit-font-smoothing:antialiased;
+padding:28px;
+}
+.app{display:grid;grid-template-columns:260px 1fr;gap:var(--gap);max-width:1200px;margin:0 auto}
+/* SIDEBAR */
+.sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700}
+.brand h1{font-size:15px;margin:0}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+nav{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.nav-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;color:var(--muted);cursor:pointer}
+.nav-item.active{background:linear-gradient(90deg, rgba(139,92,246,0.14), rgba(6,182,212,0.06));color:var(--text)}
+.nav-item:hover{color:var(--text)}
+.user{margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,0.02);display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700}
+/* MAIN */
+.main{min-height:80vh}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+.search{flex:1;display:flex;align-items:center;gap:10px;background:var(--glass);padding:10px;border-radius:12px;backdrop-filter: blur(6px)}
+.search input{flex:1;background:transparent;border:0;outline:none;color:var(--text)}
+.actions{display:flex;gap:12px;align-items:center}
+.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:12px;color:white;border:0;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;min-height:80px}
+.cards-row{display:flex;gap:12px}
+.kpi{font-size:22px;font-weight:700}
+.kpi-small{font-size:12px;color:var(--muted)}
+.table{background:var(--card);border-radius:12px;padding:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
+th{font-size:12px;color:var(--muted)}
+td{font-size:14px}
+.chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:12px}
+
+
+/* responsive */
+@media (max-width:900px){.app{grid-template-columns:1fr; padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.topbar{flex-direction:column;align-items:stretch}.search{order:2} .sidebar{display:none}}
+
+
+/* small helpers */
+.muted{color:var(--muted)}
+.spark{opacity:0.9;font-size:12px}
+</style>
 </head>
 <body>
-    <h1>Hello from GitHub!</h1>
-</body>
+<div class="app" role="application">
+<aside class="sidebar" aria-label="เมนูหลัก">
+<div class="brand">
+<div class="logo">PT</div>
+<div>
+<h1>Portal</h1>
+<p>แดชบอร์ดศูนย์กลาง</p>
+</div>
+</div>
+
+
+<nav>
+<div class="nav-item active" data-section="overview">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 13h8V3H3v10zM3 21h8v-6H3v6zM13 21h8V11h-8v10zM13 3v6h8V3h-8z" fill="currentColor"/></svg>
+Overview
 </html>
