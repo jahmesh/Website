@@ -1,206 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portal — แดชบอร์ด</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent1:#8b5cf6; --accent2:#06b6d4; --glass: rgba(255,255,255,0.04);
-      --radius:16px; --gap:18px; --text:#e6eef8;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,#071022 0%, #081726 60%); color:var(--text); -webkit-font-smoothing:antialiased;
-      padding:28px;
-    }
-    .app{display:grid;grid-template-columns:260px 1fr;gap:var(--gap);max-width:1200px;margin:0 auto}
-    /* SIDEBAR */
-    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-    .brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}
-    .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700}
-    .brand h1{font-size:15px;margin:0}
-    .brand p{margin:0;font-size:12px;color:var(--muted)}
-    nav{display:flex;flex-direction:column;gap:8px;margin-top:14px}
-    .nav-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;color:var(--muted);cursor:pointer}
-    .nav-item.active{background:linear-gradient(90deg, rgba(139,92,246,0.14), rgba(6,182,212,0.06));color:var(--text)}
-    .nav-item:hover{color:var(--text)}
-    .user{margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,0.02);display:flex;gap:12px;align-items:center}
-    .avatar{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700}
-    /* MAIN */
-    .main{min-height:80vh}
-    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
-    .search{flex:1;display:flex;align-items:center;gap:10px;background:var(--glass);padding:10px;border-radius:12px;backdrop-filter: blur(6px)}
-    .search input{flex:1;background:transparent;border:0;outline:none;color:var(--text)}
-    .actions{display:flex;gap:12px;align-items:center}
-    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:12px;color:white;border:0;cursor:pointer}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;min-height:80px}
-    .cards-row{display:flex;gap:12px}
-    .kpi{font-size:22px;font-weight:700}
-    .kpi-small{font-size:12px;color:var(--muted)}
-    .table{background:var(--card);border-radius:12px;padding:12px}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:10px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
-    th{font-size:12px;color:var(--muted)}
-    td{font-size:14px}
-    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:12px}
-
-    /* responsive */
-    @media (max-width:900px){.app{grid-template-columns:1fr; padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.topbar{flex-direction:column;align-items:stretch}.search{order:2} .sidebar{display:none}}
-
-    /* small helpers */
-    .muted{color:var(--muted)}
-    .spark{opacity:0.9;font-size:12px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Portal</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') center/cover no-repeat fixed;
+    text-align: center;
+    color: #fff;
+  }
+  .header {
+    padding: 30px 0;
+    text-shadow: 2px 2px 5px #000;
+  }
+  .header img {
+    width: 140px;
+  }
+  .header h1 {
+    font-size: 36px;
+    margin-top: 10px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 40px auto;
+  }
+  .item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+  }
+  .item img {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+  .label {
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000;
+  }
+</style>
 </head>
 <body>
-  <div class="app" role="application">
-    <aside class="sidebar" aria-label="เมนูหลัก">
-      <div class="brand">
-        <div class="logo">PT</div>
-        <div>
-          <h1>Portal</h1>
-          <p>แดชบอร์ดศูนย์กลาง</p>
-        </div>
-      </div>
 
-      <nav>
-        <div class="nav-item active" data-section="overview">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 13h8V3H3v10zM3 21h8v-6H3v6zM13 21h8V11h-8v10zM13 3v6h8V3h-8z" fill="currentColor"/></svg>
-          Overview
-        </div>
-        <div class="nav-item" data-section="reports">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v2H3V3zm0 8h18v10H3V11z" fill="currentColor"/></svg>
-          Reports
-        </div>
-        <div class="nav-item" data-section="settings">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" fill="currentColor"/></svg>
-          Settings
-        </div>
-      </nav>
+<div class="header">
+  <img src="logo.png" alt="Logo">
+  <h1>J3 INTRANET PORTAL</h1>
+</div>
 
-      <div class="user">
-        <div class="avatar">JS</div>
-        <div>
-          <div style="font-weight:700">Ja Mes</div>
-          <div class="muted" style="font-size:12px">ผู้ดูแลระบบ</div>
-        </div>
-      </div>
-    </aside>
+<div class="grid">
+  <div class="item"><img src="icon1.png"><div class="label">ลงทะเบียน บก.ทท.</div></div>
+  <div class="item"><img src="icon2.png"><div class="label">ทำเนียบกำลังพล</div></div>
+  <div class="item"><img src="icon3.png"><div class="label">MAIL</div></div>
+  <div class="item"><img src="icon4.png"><div class="label">RDP</div></div>
+  <div class="item"><img src="icon5.png"><div class="label">E-DOCUMENT</div></div>
+  <div class="item"><img src="icon6.png"><div class="label">E-DOCUMENT MCC</div></div>
+  <div class="item"><img src="icon7.png"><div class="label">ENCRYPTION</div></div>
+  <div class="item"><img src="icon8.png"><div class="label">RTARF DRIVE</div></div>
+</div>
 
-    <main class="main">
-      <div class="topbar">
-        <div class="search" role="search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.8"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="5" stroke="currentColor" stroke-width="1.6"></circle></svg>
-          <input id="q" placeholder="ค้นหา..." />
-        </div>
-
-        <div class="actions">
-          <button class="btn" id="newBtn">สร้างใหม่</button>
-          <button class="btn" id="themeBtn" title="Toggle theme">โหมด</button>
-        </div>
-      </div>
-
-      <section class="grid" aria-label="ข้อมูลสำคัญ">
-        <div class="card">
-          <div class="kpi">฿ 124,390</div>
-          <div class="kpi-small">ยอดขายเดือนนี้ <span class="spark">(+8.2%)</span></div>
-        </div>
-        <div class="card">
-          <div class="kpi">1,284</div>
-          <div class="kpi-small">ผู้ใช้งานวันนี้</div>
-        </div>
-        <div class="card">
-          <div class="kpi">24</div>
-          <div class="kpi-small">งานคงค้าง</div>
-        </div>
-      </section>
-
-      <section style="display:flex;gap:16px;flex-direction:column">
-        <div class="table card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-            <div style="font-weight:700">รายการล่าสุด</div>
-            <div class="muted">แสดง 1-5 จาก 124</div>
-          </div>
-          <table aria-label="ตารางรายการ">
-            <thead>
-              <tr><th>คำสั่ง</th><th>ลูกค้า</th><th>มูลค่า</th><th>สถานะ</th></tr>
-            </thead>
-            <tbody id="rows">
-              <tr><td>#3201</td><td>บริษัท เอ</td><td>฿4,200</td><td><span class="chip">เสร็จสิ้น</span></td></tr>
-              <tr><td>#3199</td><td>นางสาว บี</td><td>฿1,120</td><td><span class="chip">รอดำเนินการ</span></td></tr>
-              <tr><td>#3195</td><td>ร้าน ซี</td><td>฿9,900</td><td><span class="chip">ยกเลิก</span></td></tr>
-              <tr><td>#3180</td><td>นาย ดี</td><td>฿3,450</td><td><span class="chip">กำลังดำเนินการ</span></td></tr>
-              <tr><td>#3175</td><td>บริษัท อี</td><td>฿12,000</td><td><span class="chip">เสร็จสิ้น</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div style="display:flex;gap:16px;flex-wrap:wrap">
-          <div class="card" style="flex:1;min-width:260px">
-            <div style="font-weight:700;margin-bottom:8px">กิจกรรมล่าสุด</div>
-            <div class="muted" style="font-size:13px">14:23 — ผู้ใช้: ja_mes เข้าสู่ระบบ</div>
-            <div class="muted" style="font-size:13px">09:00 — ระบบแบ็คอัพอัตโนมัติสำเร็จ</div>
-          </div>
-
-          <div class="card" style="width:320px;min-width:280px">
-            <div style="font-weight:700;margin-bottom:8px">การแจ้งเตือน</div>
-            <ul class="muted" style="margin:0;padding-left:16px">
-              <li>อัปเดตซอฟต์แวร์สำเร็จ</li>
-              <li>เซิร์ฟเวอร์ B โหลดสูง (73%)</li>
-              <li>มีคำสั่งใหม่ 4 รายการ</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <script>
-    // เมนูเปลี่ยนหน้าจำลอง
-    document.querySelectorAll('.nav-item').forEach(it=>it.addEventListener('click',e=>{
-      document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));
-      e.currentTarget.classList.add('active');
-      // future: load section content dynamically
-    }))
-
-    // Search filter (ตัวอย่างกรองตาราง)
-    document.getElementById('q').addEventListener('input',function(){
-      const q=this.value.toLowerCase();
-      document.querySelectorAll('#rows tr').forEach(tr=>{
-        tr.style.display = (tr.textContent.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
-      })
-    })
-
-    // Theme toggle (ตัวอย่างเล็กๆ)
-    const themeBtn = document.getElementById('themeBtn');
-    themeBtn.addEventListener('click',()=>{
-      if(document.documentElement.style.getPropertyValue('--bg') === ''){
-        // toggle to light-ish
-        document.documentElement.style.setProperty('--bg','#f6f8fb');
-        document.documentElement.style.setProperty('--card','#ffffff');
-        document.documentElement.style.setProperty('--text','#0b1020');
-        document.documentElement.style.setProperty('--muted','#62748a');
-        document.documentElement.style.setProperty('--glass','rgba(16,24,40,0.04)');
-      } else {
-        // restore dark
-        document.documentElement.style.removeProperty('--bg');
-        document.documentElement.style.removeProperty('--card');
-        document.documentElement.style.removeProperty('--text');
-        document.documentElement.style.removeProperty('--muted');
-        document.documentElement.style.removeProperty('--glass');
-      }
-    })
-
-    // สร้างตัวอย่าง modal / new
-    document.getElementById('newBtn').addEventListener('click',()=>{
-      alert('กดสร้างใหม่ — ตัวอย่างการใช้งาน (คุณสามารถเชื่อมต่อฟอร์มจริงได้)');
-    })
-  </script>
 </body>
 </html>
